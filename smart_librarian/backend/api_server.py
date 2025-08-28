@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from openai import OpenAI
 
-# Refolosim logica din CLI (deja în proiectul tău)
+# Refolosim logica din CLI
 from smart_librarian.app_cli import health_check, run_chat_once
 from smart_librarian.rag import build_or_load_store
 
@@ -50,7 +50,7 @@ def api_chat(req: ChatRequest) -> ChatResponse:
             api_key=os.getenv("OPENAI_API_KEY"),
             organization=os.getenv("OPENAI_ORG_ID") or None
         )
-        # Încarcă/creează vector-store (opțional rebuild)
+        # Încarcă/creează vector-store
         _ = build_or_load_store(client=client, rebuild=req.rebuild)
         answer = run_chat_once(client=client, question=req.question, rebuild_store=False, k=req.k)
         return ChatResponse(answer=answer)

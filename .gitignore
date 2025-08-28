@@ -32,6 +32,9 @@ Thumbs.db
 *.sqlite3
 *.db
 
+# ChromaDB vector store
+.chroma/
+
 # Frontend
 smart_librarian/frontend/.env
 

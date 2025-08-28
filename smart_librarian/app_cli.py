@@ -72,7 +72,7 @@ def health_check() -> bool:
 
     try:
         client = OpenAI(api_key=key, organization=os.getenv("OPENAI_ORG_ID") or None)
-        # 1) embeddings smoke test
+        # embeddings smoke test
         emb_model = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
         e = client.embeddings.create(model=emb_model, input=["ping"])
         dim = len(e.data[0].embedding)
@@ -155,7 +155,7 @@ def run_chat_once(client: OpenAI, question: str, rebuild_store: bool = False, k:
 
 
 def interactive_loop() -> None:
-    # IMPORTANT: suprascrie variabilele din mediu cu cele din .env (dacă există)
+    # suprascrie variabilele din mediu cu cele din .env (dacă există)
     load_dotenv(override=True)
 
     # Health check la pornire sau dacă treci --health ca prim argument

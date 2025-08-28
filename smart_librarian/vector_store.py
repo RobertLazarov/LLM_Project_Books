@@ -4,7 +4,7 @@ import os
 from typing import Iterable, List, Dict, Any
 
 import chromadb
-from chromadb.api.models.Collection import Collection  # type: ignore
+from chromadb.api.models.Collection import Collection 
 from chromadb.utils import embedding_functions
 
 
@@ -60,16 +60,15 @@ def index_books(collection: Collection, books: Iterable[Dict[str, Any]]) -> None
 
 
 def semantic_search(collection: Collection, query: str, k: int = 3) -> list[dict]:
-    # scoatem "ids" din include (nu e permis în unele versiuni Chroma)
     res = collection.query(
         query_texts=[query],
         n_results=k,
-        include=["documents", "metadatas", "distances"],  # fără "ids"
+        include=["documents", "metadatas", "distances"],  
     )
 
     docs = res.get("documents", [[]])[0] or []
     metas = res.get("metadatas", [[]])[0] or []
-    ids = res.get("ids", [[]])[0] or []          # OK să citim dacă vine implicit
+    ids = res.get("ids", [[]])[0] or []         
     dists = res.get("distances", [[]])[0] or []
 
     out: list[dict] = []
