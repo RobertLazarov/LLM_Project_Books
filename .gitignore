@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+*.venv/
+venv/
+ENV/
+.env.*
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# Node.js
+node_modules/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Data
+*.sqlite3
+*.db
+
+# Frontend
+smart_librarian/frontend/.env
+
+# Misc
+*.bak
+*.swp
+*.tmp
+
+# Ignore data files (if needed)
+# data/*.json
