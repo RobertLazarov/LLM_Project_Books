@@ -1,4 +1,3 @@
-
 # Smart Librarian – AI with RAG + Tool Completion
 
 AI chatbot (CLI) that recommends books based on user interests. **Note: The application and book summaries are in Romanian.**
